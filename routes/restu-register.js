@@ -4,36 +4,37 @@
  const datb = require('../database/database');
 
 
- router.post ('/restu-register',(req,res)=>{
+ router.post ('/restu_register',(req,res)=>{
   
    
-    let resturant={
-      "vend_id":req.body.vend_id,
-      "name":req.body.name,
-      "email":req.body.email,
-      "password":req.body.password,
-      "cell_phone":req.body.cell_phone,
-      "address":req.body.address,
-      "tax_num":req.body.tax_num,
+    let restaurant={
+      restaurant_id:req.body.restaurant_id,
+      name:req.body.name,
+      email:req.body.email,
+      cell_phone:req.body.cell_phone,
+      address:req.body.address,
       
     }
-    datb.query('INSERT INTO tblvendor SET ?',resturant, function (error, results, fields) {
+
+    datb.query('INSERT INTO tblvendor SET ?',[restaurant], function (error, results, fields) {
+      module.exports =router;
+
     if (error) 
     {
       console.log("error ocurred",error);
       res.send({
-        "code":400,
+       "code":400,
         "failed":"error ocurred"
       })
 
     }
-    else
+      else
     {
-      console.log('The solution is: ', results);
-      res.send({
-        "code":200,
-        "success":"user registered sucessfully"
-          });
+          console.log('The solution is: ', results);
+          res.send({
+            "code":200,
+            "success":"user registered sucessfully"
+              });
     }
   
     });
