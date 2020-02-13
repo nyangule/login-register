@@ -16,7 +16,7 @@
       
     }
 
-    datb.query('INSERT INTO tblvendor SET ?',[restaurant], function (error, results, fields) {
+    datb.query('INSERT INTO restuarant_admin SET ?',[restaurant], function (error, results, fields) {
       module.exports =router;
 
     if (error) 

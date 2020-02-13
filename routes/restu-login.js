@@ -7,7 +7,7 @@ const datb = require('../database/database');
 router.get('/restu_login', (req,res)=>{
     let email =( {email:req.body.email})
 
-  datb.query('SELECT * from tblvendor where email = ?', [email],function(error,results,fields){
+  datb.query('SELECT * from restuarant_admin where email = ?', [email],function(error,results,fields){
  
     if(error){
        res.send({
